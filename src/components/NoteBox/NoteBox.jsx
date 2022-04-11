@@ -158,7 +158,7 @@ export default function NoteBox() {
             <div className={`inputBoxContainer ${editShow && 'showInputBox'}`}>
                 <div className="inputBox">
                     <label htmlFor="tilte">ویرایش عنوان</label>
-                    <input maxLength={5} value={editTitle} onChange={(e) => { setEditTitle(e.target.value) }} type="text" id='title' />
+                    <input maxLength={35} value={editTitle} onChange={(e) => { setEditTitle(e.target.value) }} type="text" id='title' />
                 </div>
                 <div className="inputBox">
                     <label htmlFor="text">ویرایش متن</label>
