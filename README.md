@@ -4,6 +4,12 @@
 - React Router Dom
 - Framer Motion
 - React Toastify
+- React Icon
+
+### Feature 
+- add,delete,edit note
+- save on localStorage
+- Spa with React Router Dom Package
 
 ## [See Website](https://noteapp-reactjs.netlify.app/)
 
