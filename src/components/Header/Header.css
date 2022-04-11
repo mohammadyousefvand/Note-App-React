@@ -1,0 +1,17 @@
+header {
+    background-color: #b71c1c;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.headerTitle {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.headerIcon {
+    font-size: 30px;
+}

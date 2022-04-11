@@ -1,0 +1,40 @@
+.noteItemBox{
+    width: 100%;
+    padding: 30px;
+}
+
+.textBox{
+    width: 100%;
+    background: linear-gradient(222deg, rgba(255,255,255,1) 0%, rgba(203,203,203,1) 100%);
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.backLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 20px;
+    color: rgba(244,67,54,1);
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(244,67,54,1);
+}
+
+.noteBoxTitle{
+    margin-bottom: 20px;
+}
+
+.dateSingleNote{
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 10px;
+    letter-spacing: 2px;
+    color: rgba(0, 0, 0, .6);
+    text-align: left;
+    border-top: 1px solid rgba(0, 0, 0, .2);
+}
