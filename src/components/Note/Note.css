@@ -1,11 +1,11 @@
-.noteItemBox{
+.noteItemBox {
     width: 100%;
     padding: 30px;
 }
 
-.textBox{
+.textBox {
     width: 100%;
-    background: linear-gradient(222deg, rgba(255,255,255,1) 0%, rgba(203,203,203,1) 100%);
+    background: linear-gradient(222deg, rgba(255, 255, 255, 1) 0%, rgba(203, 203, 203, 1) 100%);
     padding: 20px;
     border-radius: 5px;
     display: flex;
@@ -14,22 +14,22 @@
     justify-content: center;
 }
 
-.backLink{
+.backLink {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
     font-size: 20px;
-    color: rgba(244,67,54,1);
+    color: rgba(244, 67, 54, 1);
     margin-bottom: 30px;
-    border-bottom: 1px solid rgba(244,67,54,1);
+    border-bottom: 1px solid rgba(244, 67, 54, 1);
 }
 
-.noteBoxTitle{
+.noteBoxTitle {
     margin-bottom: 20px;
 }
 
-.dateSingleNote{
+.dateSingleNote {
     width: 100%;
     margin-top: 30px;
     padding-top: 10px;

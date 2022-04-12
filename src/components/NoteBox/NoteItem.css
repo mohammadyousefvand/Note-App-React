@@ -1,7 +1,7 @@
 .noteBox {
     width: 250px;
     height: 250px;
-    background: linear-gradient(118deg, rgba(255,255,255,1) 0%, rgba(203,203,203,1) 100%);
+    background: linear-gradient(118deg, rgba(255, 255, 255, 1) 0%, rgba(203, 203, 203, 1) 100%);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
     border-top: 1px solid rgba(0, 0, 0, .2);
 }
 
-.btnBoxFooter{
+.btnBoxFooter {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -60,7 +60,7 @@
     transition: all .3s;
 }
 
-.deleteIconbox:hover{
+.deleteIconbox:hover {
     background-color: #eee;
     color: #d12e3e;
     border: 1px solid #d12e3e;
@@ -79,13 +79,13 @@
     transition: all .3s;
 }
 
-.editIconbox:hover{
+.editIconbox:hover {
     background-color: #eee;
     color: #0096d6;
     border: 1px solid #0096d6;
 }
 
-.dateNote{
+.dateNote {
     letter-spacing: 2px;
     color: rgba(0, 0, 0, .6);
 }

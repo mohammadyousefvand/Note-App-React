@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import './Note.css'
 import { BsArrowRight } from 'react-icons/bs'
 import { motion } from 'framer-motion'
@@ -32,21 +32,27 @@ export default function Note() {
   }
 
   return (
-    <div className='noteItemBox'>
-      <motion.div
-        variants={noteItemVariant}
-        initial="hidden"
-        animate="visible"
-        className="textBox">
-        <Link className='backLink' to={'/'}>
-          <BsArrowRight />
-          <span>صفحه قبل</span>
-        </Link>
-        <h3 className='noteBoxTitle'>{mainNote.title}</h3>
-        <p>{mainNote.textNote}</p>
-        <span
-          className='dateSingleNote'>{mainNote.date}</span>
-      </motion.div>
-    </div>
+    <>
+      {mainNote ? (
+        <div className='noteItemBox'>
+          <motion.div
+            variants={noteItemVariant}
+            initial="hidden"
+            animate="visible"
+            className="textBox">
+            <Link className='backLink' to={'/'}>
+              <BsArrowRight />
+              <span>صفحه قبل</span>
+            </Link>
+            <h3 className='noteBoxTitle'>{mainNote.title}</h3>
+            <p>{mainNote.textNote}</p>
+            <span
+              className='dateSingleNote'>{mainNote.date}</span>
+          </motion.div>
+        </div>
+      ) : (
+        <Navigate to={'/'} />
+      )}
+    </>
   )
 }

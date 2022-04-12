@@ -1,17 +1,20 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import { Navigate, useRoutes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Note from './components/Note/Note';
 import NoteBox from './components/NoteBox/NoteBox';
 
 function App() {
+
+  let router = useRoutes([
+    {path: '/note/:id', element: <Note />},
+    {path: '/', element: <NoteBox />,},
+    {path: '*', element: <Navigate to='/' />},
+  ])
+
   return (
     <>
       <Header/>
-        <Routes>
-          <Route path='/' element={<NoteBox/>} />
-          <Route path='/:id' element={<Note/>} />
-        </Routes>
+      {router}
     </>
   );
 }

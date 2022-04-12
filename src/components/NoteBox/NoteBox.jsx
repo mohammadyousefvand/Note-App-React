@@ -108,7 +108,7 @@ export default function NoteBox() {
                         <div className='headerNoteItem'>
                             <p className='NoteHeaderTitle'>{note.title}</p>
                         </div>
-                        <Link className="mainNoteItem" to={`/${note.id}`}>
+                        <Link className="mainNoteItem" to={`/note/${note.id}`}>
                             <div>
                                 <p>{note.textNote}</p>
                             </div>
