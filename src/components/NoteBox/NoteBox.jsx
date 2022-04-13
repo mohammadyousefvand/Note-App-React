@@ -7,29 +7,18 @@ import { motion } from 'framer-motion'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import './NoteBox.css'
-import './NoteItem.css'
+import AddNoteModal from '../NoteModal/AddNoteModal'
+import EditNoteModal from '../NoteModal/EditNoteModal'
 
 export default function NoteBox() {
     const { notes,
-        title,
-        setTitle,
-        textNote,
-        setTextNote,
         showInput,
         setShowInput,
         editShow,
         setEditShow,
-        editTitle,
-        setEditTitle,
-        editText,
-        setEditText,
         setNoteId,
-        countTitle,
-        addNewNote,
         removeNote,
-        getNote,
-        editNoteHandler,
-        setCountTitle, } = useContext(MainContext)
+        getNote, } = useContext(MainContext)
 
     const noteVariant = {
         hidden: {
@@ -91,42 +80,8 @@ export default function NoteBox() {
                     </motion.div>
                 ))}
             </div>
-            <div className={`inputBoxContainer ${showInput && 'showInputBox'}`}>
-                <div className="inputBox">
-                    <div className='letterCount'>
-                        <span>{countTitle} </span>
-                        <span>/</span>
-                        <span> 35</span>
-                    </div>
-                    <label htmlFor="tilte">عنوان یادداشت</label>
-                    <input maxLength={35} value={title} onChange={(e) => {
-                        setCountTitle(e.target.value.length)
-                        setTitle(e.target.value)
-                    }} type="text" id='title' />
-                </div>
-                <div className="inputBox">
-                    <label htmlFor="text">متن یادداشت</label>
-                    <textarea value={textNote} onChange={(e) => setTextNote(e.target.value)} id="text"></textarea>
-                </div>
-                <div className='btnBox'>
-                    <button onClick={addNewNote} className='saveBtn'>ذخیره</button>
-                    <button onClick={() => setShowInput(false)} className='canselBtn'>لغو</button>
-                </div>
-            </div>
-            <div className={`inputBoxContainer ${editShow && 'showInputBox'}`}>
-                <div className="inputBox">
-                    <label htmlFor="tilte">ویرایش عنوان</label>
-                    <input maxLength={35} value={editTitle} onChange={(e) => { setEditTitle(e.target.value) }} type="text" id='title' />
-                </div>
-                <div className="inputBox">
-                    <label htmlFor="text">ویرایش متن</label>
-                    <textarea value={editText} onChange={(e) => setEditText(e.target.value)} id="text"></textarea>
-                </div>
-                <div className='btnBox'>
-                    <button onClick={editNoteHandler} className='saveBtn'>ویرایش</button>
-                    <button onClick={() => setEditShow(false)} className='canselBtn'>لغو</button>
-                </div>
-            </div>
+            <AddNoteModal />
+            <EditNoteModal />
         </>
     )
 }
