@@ -1,74 +1,35 @@
-import React, { useEffect, useState, useContext } from 'react'
-import './NoteBox.css'
-import './NoteItem.css'
+import React, { useContext } from 'react'
 import { BsPlusCircleDotted } from 'react-icons/bs'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
+import { MainContext } from '../context/MainContextProvider'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { toast, ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { MainContext } from '../context/MainContextProvider'
+import './NoteBox.css'
+import './NoteItem.css'
 
 export default function NoteBox() {
-    const {notes, setNotes} = useContext(MainContext)
-
-    const [title, setTitle] = useState('')
-    const [textNote, setTextNote] = useState('')
-    const [showInput, setShowInput] = useState(false)
-    const [editShow, setEditShow] = useState(false)
-    const [editTitle, setEditTitle] = useState("")
-    const [editText, setEditText] = useState("")
-    const [noteId, setNoteId] = useState()
-    const [countTitle, setCountTitle] = useState(0)
-
-    const addNewNote = () => {
-        if (title && textNote) {
-            setShowInput(false)
-            let oldNote = JSON.parse(localStorage.getItem("notes"))
-            let newNote = {
-                id: notes.length + 1,
-                title,
-                textNote,
-                date: new Date().toLocaleDateString('fa-IR'),
-            }
-            localStorage.setItem("notes", JSON.stringify([newNote, ...oldNote]))
-            setNotes([...notes, newNote])
-            setTitle("")
-            setTextNote("")
-        } else {
-            toast.warn('لطفا ورودی ها را خالی نگذارید')
-        }
-    }
-    useEffect(() => {
-        setNotes(JSON.parse(localStorage.getItem("notes")))
-    }, [])
-
-    const removeNote = (noteId) => {
-        let newNoteList = notes.filter(note => note.id !== noteId)
-
-        setNotes(newNoteList)
-        localStorage.setItem("notes", JSON.stringify(newNoteList))
-    }
-    const getNote = (noteId) => {
-        let editNote = notes.find(note => note.id === noteId)
-        setEditTitle(editNote.title)
-        setEditText(editNote.textNote)
-    }
-
-    const editNoteHandler = () => {
-        setEditShow(false)
-        let newNotes = [...notes]
-        newNotes.forEach(note => {
-            if (note.id === noteId) {
-                note.title = editTitle
-                note.textNote = editText
-            }
-        })
-
-        setNotes(newNotes)
-        localStorage.setItem("notes", JSON.stringify(newNotes))
-        toast.success('ویرایش شد')
-    }
+    const { notes,
+        title,
+        setTitle,
+        textNote,
+        setTextNote,
+        showInput,
+        setShowInput,
+        editShow,
+        setEditShow,
+        editTitle,
+        setEditTitle,
+        editText,
+        setEditText,
+        setNoteId,
+        countTitle,
+        addNewNote,
+        removeNote,
+        getNote,
+        editNoteHandler,
+        setCountTitle, } = useContext(MainContext)
 
     const noteVariant = {
         hidden: {
