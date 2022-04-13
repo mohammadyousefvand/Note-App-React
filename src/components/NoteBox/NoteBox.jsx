@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './NoteBox.css'
 import './NoteItem.css'
 import { BsPlusCircleDotted } from 'react-icons/bs'
@@ -7,14 +7,11 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { MainContext } from '../context/MainContextProvider'
 
 export default function NoteBox() {
+    const {notes, setNotes} = useContext(MainContext)
 
-    const [notes, setNotes] = useState(
-        !localStorage.getItem("notes")
-            ? localStorage.setItem("notes", JSON.stringify([]))
-            : []
-    )
     const [title, setTitle] = useState('')
     const [textNote, setTextNote] = useState('')
     const [showInput, setShowInput] = useState(false)

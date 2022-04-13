@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import './Note.css'
 import { BsArrowRight } from 'react-icons/bs'
 import { motion } from 'framer-motion'
+import { MainContext } from '../context/MainContextProvider'
 
 export default function Note() {
 
   let paramsId = useParams()
-  const [singleNote, setSingelNote] = useState(
-    JSON.parse(localStorage.getItem("notes"))
-  )
-
-  let mainNote = singleNote.find(note => note.id == paramsId.id)
+  const { notes } = useContext(MainContext)
+  let mainNote = notes.find(note => note.id == paramsId.id)
 
   const noteItemVariant = {
     hidden: {
