@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
+import { v4 as uuidv4 } from 'uuid';
 
 export const MainContext = createContext()
 
@@ -23,7 +24,7 @@ export default function MainContextProvider({ children }) {
             setShowInput(false)
             let oldNote = JSON.parse(localStorage.getItem("notes"))
             let newNote = {
-                id: notes.length + 1,
+                id: uuidv4(),
                 title,
                 textNote,
                 date: new Date().toLocaleDateString('fa-IR'),
