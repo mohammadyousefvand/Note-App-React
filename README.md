@@ -5,6 +5,7 @@
 - Framer Motion
 - React Toastify
 - React Icon
+- uuid
 
 ### Feature 
 - add,delete,edit note
